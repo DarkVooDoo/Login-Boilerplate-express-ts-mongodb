@@ -1,5 +1,5 @@
 import database from './DbConnection'
-import { SignInTypes } from '../Types/Types'
+import { SignInTypes, SignUpTypes } from '../Types/Types'
 
 export const SignIn = async ({email, password}:SignInTypes)=>{
     const client = await database()
@@ -19,11 +19,6 @@ export const SignIn = async ({email, password}:SignInTypes)=>{
     }
 }
 
-type SignUpTypes = {
-    name: string, 
-    email: string,
-    password: string
-}
 export const SignUp = async ({name,email,password}:SignUpTypes)=>{
     const client = await database()
     if(typeof client !== 'undefined'){
